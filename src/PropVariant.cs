@@ -53,7 +53,7 @@ namespace PhotoSauce.Interop.Wic
 		[FieldOffset(8)] public IntPtr pointerValue;
 		[FieldOffset(8)] public PropVariantVector vectorValue;
 
-		public VarEnum vt { get =>(VarEnum)_vt; set => _vt = (ushort)value; }
+		public VarEnum vt { get => (VarEnum)_vt; set => _vt = (ushort)value; }
 	}
 
 	internal sealed class PropVariant : IEquatable<PropVariant>

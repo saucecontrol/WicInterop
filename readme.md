@@ -11,7 +11,9 @@ The repo is designed to be included as a Git submodule.  Any project using this 
 </PropertyGroup>
 ```
 
-Additionally, it requires the [System.Memory](https://www.nuget.org/packages/System.Memory/) NuGet package or equivalent (included in `netcoreapp2.1`+ and `netstandard2.1`+) as well as [System.Runtime.CompilerServices.Unsafe](https://www.nuget.org/packages/System.Runtime.CompilerServices.Unsafe) (included in `netcoreapp3.0`+)
+If building for a target that does not include the Nullable annotation attributes, they can be obtained by adding a reference to the [ReferenceAssemblyAnnotator](https://www.nuget.org/packages/TunnelVisionLabs.ReferenceAssemblyAnnotator) NuGet package.
+
+Additionally, the [System.Memory](https://www.nuget.org/packages/System.Memory/)NuGet package or equivalent (included in `netcoreapp2.1`+ and `netstandard2.1`+) as well as [System.Runtime.CompilerServices.Unsafe](https://www.nuget.org/packages/System.Runtime.CompilerServices.Unsafe) (included in `netcoreapp3.0`+) are required.
 
 Finally, the `VarEnum` type required for metadata support is marked obsolete in `netcoreapp2.1` and `netstandard2.1`.  This was [undone](https://github.com/dotnet/corefx/pull/35161) for `netcoreapp3.0`, so the warnings can safely be ignored.
 
@@ -21,4 +23,4 @@ Finally, the `VarEnum` type required for metadata support is marked obsolete in 
 </PropertyGroup>
 ```
 
-I make no guarantee of compatibility or API stability.  Changes will be made as needed by the PhotoSauce project.
+I make no promises of compatibility or API stability.  Changes will be made as needed by the PhotoSauce project.

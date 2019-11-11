@@ -16,13 +16,10 @@
 
 using System;
 using System.Text;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
-
-#if BUILTIN_NULLABLE
-using System.Diagnostics.CodeAnalysis;
-#endif
 
 using EXCEPINFO = System.Runtime.InteropServices.ComTypes.EXCEPINFO;
 using STATSTG = System.Runtime.InteropServices.ComTypes.STATSTG;
@@ -332,9 +329,9 @@ namespace PhotoSauce.Interop.Wic
 		public static readonly Guid CLSID_WICDdsMetadataWriter                         = new Guid(0xfd688bbd, 0x31ed, 0x4db7, 0xa7, 0x23, 0x93, 0x49, 0x27, 0xd3, 0x83, 0x67);
 		public static readonly Guid CLSID_WICAdngDecoder                               = new Guid(0x981d9411, 0x909e, 0x42a7, 0x8f, 0x5d, 0xa7, 0x47, 0xff, 0x05, 0x2e, 0xdb);
 		public static readonly Guid CLSID_WICJpegQualcommPhoneEncoder                  = new Guid(0x68ed5c62, 0xf534, 0x4979, 0xb2, 0xb3, 0x68, 0x6a, 0x12, 0xb2, 0xb3, 0x4c);
-		public static readonly Guid CLSID_WicHeifDecoder                               = new Guid(0xe9a4a80a, 0x44fe, 0x4de4, 0x89, 0x71, 0x71, 0x50, 0xb1, 0x0a, 0x51, 0x99);
-		public static readonly Guid CLSID_WicHeifEncoder                               = new Guid(0x0dbecec1, 0x9eb3, 0x4860, 0x9c, 0x6f, 0xdd, 0xbe, 0x86, 0x63, 0x45, 0x75);
-		public static readonly Guid CLSID_WicWebpDecoder                               = new Guid(0x7693e886, 0x51c9, 0x4070, 0x84, 0x19, 0x9f, 0x70, 0X73, 0X8e, 0Xc8, 0Xfa);
+		public static readonly Guid CLSID_WICHeifDecoder                               = new Guid(0xe9a4a80a, 0x44fe, 0x4de4, 0x89, 0x71, 0x71, 0x50, 0xb1, 0x0a, 0x51, 0x99);
+		public static readonly Guid CLSID_WICHeifEncoder                               = new Guid(0x0dbecec1, 0x9eb3, 0x4860, 0x9c, 0x6f, 0xdd, 0xbe, 0x86, 0x63, 0x45, 0x75);
+		public static readonly Guid CLSID_WICWebpDecoder                               = new Guid(0x7693e886, 0x51c9, 0x4070, 0x84, 0x19, 0x9f, 0x70, 0X73, 0X8e, 0Xc8, 0Xfa);
 
 		public static readonly Guid GUID_ContainerFormatBmp                            = new Guid(0x0af1d87e, 0xfcfe, 0x4188, 0xbd, 0xeb, 0xa7, 0x90, 0x64, 0x71, 0xcb, 0xe3);
 		public static readonly Guid GUID_ContainerFormatGif                            = new Guid(0x1f8a5601, 0x7d4d, 0x4cbd, 0x9c, 0x82, 0x1b, 0xc8, 0xd4, 0xee, 0xb9, 0xa5);
@@ -1290,9 +1287,7 @@ namespace PhotoSauce.Interop.Wic
 
 		void CreateNewFrame(
 			out IWICBitmapFrameEncode ppIFrameEncode,
-#if BUILTIN_NULLABLE
 			[NotNull]
-#endif
 			ref IPropertyBag2? ppIEncoderOptions
 		);
 
@@ -1484,7 +1479,7 @@ namespace PhotoSauce.Interop.Wic
 
 	[ComImport, Guid("23BC3F0A-698B-4357-886B-F24D50671334"), InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
 	internal interface IWICComponentInfo
-{
+	{
 		WICComponentType GetComponentType();
 
 		Guid GetCLSID();
