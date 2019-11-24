@@ -2770,6 +2770,14 @@ namespace PhotoSauce.Interop.Wic
 
 	internal static class ProxyFunctions
 	{
+		[DllImport("WindowsCodecs", EntryPoint = "IPropertyBag2_Write_Proxy")]
+		public extern static int PropertyBagWrite(
+			IPropertyBag2 THIS_PTR,
+			uint cProperties,
+			in PROPBAG2 ppropBag,
+			in UnmanagedPropVariant pvarValue
+		);
+
 		[DllImport("WindowsCodecs", EntryPoint = "IWICBitmapDecoder_GetPreview_Proxy")]
 		public extern static int GetPreview(
 			IWICBitmapDecoder THIS_PTR,
