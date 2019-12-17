@@ -2808,7 +2808,7 @@ namespace PhotoSauce.Interop.Wic
 		public extern static int SetColorContexts(
 			IWICBitmapFrameEncode THIS_PTR,
 			uint cCount,
-			[MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 0)]
+			[MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)]
 			IWICColorContext[] ppIColorContext
 		);
 
@@ -2817,8 +2817,7 @@ namespace PhotoSauce.Interop.Wic
 			IWICMetadataQueryReader THIS_PTR,
 			[MarshalAs(UnmanagedType.LPWStr)]
 			string wzName,
-			[In, Out, MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(PropVariant.Marshaler))]
-			PropVariant? pvarValue
+			IntPtr pvarValue
 		);
 
 		[DllImport("WindowsCodecs", EntryPoint = "IWICMetadataQueryWriter_SetMetadataByName_Proxy")]
