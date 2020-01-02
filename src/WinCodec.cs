@@ -2825,8 +2825,7 @@ namespace PhotoSauce.Interop.Wic
 			IWICMetadataQueryWriter THIS_PTR,
 			[MarshalAs(UnmanagedType.LPWStr)]
 			string wzName,
-			[In, MarshalAs(UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof(PropVariant.Marshaler))]
-			PropVariant pvarValue
+			IntPtr pvarValue
 		);
 
 		[DllImport("WindowsCodecsExt", EntryPoint = "IWICColorTransform_Initialize_Proxy")]

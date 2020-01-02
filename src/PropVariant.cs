@@ -162,7 +162,7 @@ namespace PhotoSauce.Interop.Wic
 				return res;
 			}
 
-			public static ICustomMarshaler GetInstance(string _) => new Marshaler();
+			public static ICustomMarshaler GetInstance(string? _) => new Marshaler();
 
 			private PropVariant? pv;
 
