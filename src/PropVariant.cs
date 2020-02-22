@@ -20,6 +20,7 @@ using System.Buffers;
 using System.Collections;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PhotoSauce.Interop.Wic
 {
@@ -122,6 +123,18 @@ namespace PhotoSauce.Interop.Wic
 			}
 
 			UnmanagedType = getUnmanagedType(Value, MarshalType);
+		}
+
+		public bool TryGetValue<T>([MaybeNullWhen(false)] out T val)
+		{
+			if (Value is null || Value.GetType() != typeof(T))
+			{
+				val = default;
+				return false;
+			}
+
+			val = (T)Value;
+			return true;
 		}
 
 		public bool Equals(PropVariant other)
