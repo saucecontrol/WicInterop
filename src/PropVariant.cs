@@ -137,7 +137,7 @@ namespace PhotoSauce.Interop.Wic
 			return true;
 		}
 
-		public bool Equals(PropVariant other)
+		public bool Equals(PropVariant? other)
 		{
 			if (other is null)
 				return false;
